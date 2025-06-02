@@ -1,0 +1,33 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Lab10_FASTA.MainWindow"
+        Title="Lab10_FASTA">
+	<DockPanel>
+		<Menu DockPanel.Dock="Top">
+			<MenuItem Header="Plik">
+			<MenuItem Header="Wczytaj plik FASTA" Click="OpenFile_Click"/>
+			<MenuItem Header="Zapisz do CSV" Click="ExportCSV_Click"/>
+			<MenuItem Header="Zapisz do JSON" Click="ExportJSON_Click"/>
+			</MenuItem>
+		</Menu>
+
+		<Grid ColumnDefinitions="2*,3*" RowDefinitions="*,2*">
+			<ListBox x:Name="SequenceList" SelectionChanged="SequenceList_SelectionChanged" />
+			<StackPanel Grid.Column="1" Margin="10">
+				<TextBlock Text="Szczegóły sekwencji:" FontWeight="Bold" Margin="0,0,0,10"/>
+				<TextBlock x:Name="HeaderText"/>
+				<TextBlock x:Name="LengthText"/>
+				<TextBlock x:Name="GCText"/>
+				<TextBlock x:Name="CodonText"/>
+				<TextBlock x:Name="ATGCText"/>
+			</StackPanel>
+			<ScrollViewer Grid.Row="1" Grid.ColumnSpan="2" Height="200" HorizontalScrollBarVisibility="Auto">
+				<StackPanel x:Name="Wykres" Orientation="Horizontal" Margin="10" Spacing="8"/>
+			</ScrollViewer>
+
+		</Grid>
+	</DockPanel>
+</Window>
